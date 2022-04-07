@@ -1,7 +1,6 @@
-# Getting Started with Create React App
+# Client developed in React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+Just run the ### 'npm run build' in order to generate the page rendered by node server
 ## Available Scripts
 
 In the project directory, you can run:
