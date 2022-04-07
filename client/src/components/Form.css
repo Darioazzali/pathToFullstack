@@ -1,0 +1,70 @@
+.container-form{
+flex-grow: 1;
+display: flex;
+flex-direction: column;
+justify-content:flex-start;
+padding: 0;
+border-radius: 15px;
+margin: 0;
+align-items:flex-start;
+border: #6200EE solid 3px;
+border-top: 60px solid #6200EE;
+box-shadow: none;
+color: black;
+max-width: 600px;
+}
+.container-form > div:not(.btn){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    margin: 0;
+    width: 100%;
+    border-bottom: solid #6200EE 1px;
+    color: black;
+}
+
+.address-field input{
+    color: black;
+    border-radius: 15px;
+    padding: 10px;
+    border: solid #6200EE 2px;
+    text-align: center;
+}
+
+
+select {
+    color: black;
+    text-align: left;
+}
+optgroup {
+    color: black;
+    text-align: left;
+}
+
+option {
+    text-align: left;
+    color:black
+}
+
+.btn {
+    align-self: center;
+}
+.btn button{
+    color: black;
+    border: transparent;
+    background-color: #bb86fc;
+    margin: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+}
+p {
+    color: black;
+}
+
+  @media screen and (max-width : 700px){
+ .container-form > div:not(.btn){
+    padding: 10px 10px;
+ }
+}

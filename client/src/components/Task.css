@@ -1,0 +1,66 @@
+.container-tasks {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 300px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}
+
+h1 {
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+.container-tasks ul{
+    text-align: left;
+    margin-left: 10px;
+}
+
+
+li > p{
+    color: white;
+}
+
+.li-container {
+    background-color: #6200EE;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.li-container-act {
+    background-color: #bb86fc;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: white;
+}
+li {
+    text-align: left;
+    list-style: none;
+    color: white;
+    padding: 5px 10px;
+}
+
+.icone{
+display: flex;
+justify-content: space-between;
+}
+
+.icone > *{
+    margin-left: 10px;
+}

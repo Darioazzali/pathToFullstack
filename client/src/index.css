@@ -1,0 +1,39 @@
+  * {
+  padding: 0;
+  margin: 0;
+    box-sizing: border-box;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+color: black;
+  }
+
+  body {
+      background-color: white;
+      color: black;
+      
+  }
+
+  a {
+      text-decoration: none;
+      color: white;
+  }
+  .container{
+      border: solid white 3px;
+  }
+
+  input {
+    border: transparent;
+  }
+
+  select {
+    border-radius: 10px;
+    text-align: center;
+padding: 10px;
+  }
+  @media screen and (max-width : 600px){
+    *{
+    font-size: small;
+    padding: 0;
+    }
+  }
+
