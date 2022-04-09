@@ -22,19 +22,33 @@ fetchAllData(setElenco,URI)
 ,[changed])
 
 
-function handleDelete(id){
-  console.log("Deleting id:", id); 
 
-fetchDelete(URI, id);
-setChanged(!changed);
+function handleDelete(id){
+  async function fetchDelete (){
+    const settings = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: null,
+    };
+    const response = await fetch(URI+'/'+ id, settings);
+    setChanged(!changed);
+    }
+console.log("Deleting id:", id); 
+
 } 
 
 
 function handleUpdate(id){
   console.log("Updating id:", id); 
+async function fetchData () {
+  const data = await fetch(URI+'/'+id);
+  const response = await data.json();
+};
 setIsUpdating(true);
 setUpdatingId(id)
-fetchData(URI,id,setAddress,setColor);
+fetchData();
 } 
 
 
