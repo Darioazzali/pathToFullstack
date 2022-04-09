@@ -41,7 +41,6 @@ if (isUpdating) {
   setIsUpdating(false);
   resetForm();
   setChanged(!changed)
-  console.log("updated")
   
 } 
 fetchUpdate()
@@ -69,22 +68,37 @@ async function fetchPost () {
         <div>
           <label>Address</label>
         </div>
-        <div className='address-field'>
-          <input type="text" placeholder="Type your address" name= "address" value={address} onChange={(e)=>{
+        <div className="address-field">
+          <input
+            type="text"
+            placeholder="Type your address"
+            name="address"
+            value={address}
+            onChange={(e) => {
               setAddress(e.target.value);
-          }}/>
+            }}
+          />
         </div>
       </div>
       <div>
         <label>Color </label>
-        <input type="color" value={color} name="color" onChange={(e)=>{
-            setColor(e.target.value)
-        }}></input>
+        <input
+          type="color"
+          value={color}
+          name="color"
+          onChange={(e) => {
+            setColor(e.target.value);
+          }}
+        ></input>
       </div>
       <div>
         <p>Type</p>
         <div className="Mylist">
-          <select name="clippType" id="clippType"   onChange={(e) => setType(e.target.value)}> 
+          <select
+            name="clippType"
+            id="clippType"
+            onChange={(e) => setType(e.target.value)}
+          >
             <optgroup label="Cats">
               <option value="Cat">Cat</option>
               <option value="Tiger">Tiger</option>
@@ -96,9 +110,11 @@ async function fetchPost () {
           </select>
         </div>
       </div>
-        <div className='btn' >
-      <button type="button" onClick={handleClick}>{isUpdating ? "Update" :"Submit"}</button>
-        </div>
+      <div className="btn">
+        <button type="button" onClick={handleClick}>
+          {isUpdating ? "Update" : "Submit"}
+        </button>
+      </div>
     </form>
   );
 }
