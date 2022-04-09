@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import 'regenerator-runtime/runtime'
-import {fetchAllData, fetchData, fetchDelete, fetchUpdat, fetchUpdate} from './auxFunction/auxFunctions'
+
 import './Task.css'
 import {BsFillTrashFill ,BsFillPenFill} from 'react-icons/bs'
 function Task(props) {
@@ -14,27 +14,51 @@ const isUpdating = props.isUpdating;
 const setIsUpdating = props.setIsUpdating
 const updatingId = props.updatingId
 const setUpdatingId = props.setUpdatingId
+const setType = props.setType
  useEffect( ()=>
  {
-
-fetchAllData(setElenco,URI)
+async function fetchAllData () {
+  const data = await fetch(URI);
+  const response = await data.json();
+setElenco(response);
+};
+fetchAllData();
 }
 ,[changed])
 
 
-function handleDelete(id){
-  console.log("Deleting id:", id); 
 
-fetchDelete(URI, id);
-setChanged(!changed);
+function handleDelete(id){
+  async function fetchDelete (){
+    const settings = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: null,
+    };
+    const response = await fetch(URI+'/'+ id, settings);
+    setChanged(!changed);
+    }
+console.log("Deleting id:", id); 
+fetchDelete();
+
 } 
 
 
 function handleUpdate(id){
   console.log("Updating id:", id); 
+async function fetchData () {
+  const data = await fetch(URI+'/'+id);
+  const response = await data.json();
+setAddress(response.address);
+setColor(response.color);
+setType(response.type);
 setIsUpdating(true);
 setUpdatingId(id)
-fetchData(URI,id,setAddress,setColor);
+console.log(updatingId);
+};
+fetchData();
 } 
 
 

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
 import './Form.css'
-import {fetchUpdate, postData} from './auxFunction/auxFunctions.js'
 function Form(props) {
+
 const {address, color, type, setAddress, setColor, setType, changed,setChanged} = props; //Destructuring props
 const isUpdating = props.isUpdating;
 const setIsUpdating = props.setIsUpdating
@@ -20,24 +19,48 @@ const handleClick = (e) => {
 const newForm = {
   address,
   color,
-  type
-}
-if (address === "" || color==="" || type==="" ){
+  type,
+};
+if (address === "" || color === "" || type === "") {
   alert("There is an empty field, check on and send again");
-  return
+  return;
 }
 
-if (isUpdating ){
-  fetchUpdate(URI,updatingId,newForm);
-  setIsUpdating(false)
+if (isUpdating) {
+ const fetchUpdate = async () => {
+   console.log("Newform", newForm)
+    const settings = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newForm),
+    };
+    const response = await fetch(URI + "/" + updatingId, settings);
+    console.log("Updated ", response.json());
+  setIsUpdating(false);
   resetForm();
   setChanged(!changed)
+  console.log("updated")
+  
+} 
+fetchUpdate()
 }
-else{
-postData(URI, newForm);
-setChanged(!changed);
-}
-};
+ else {
+async function fetchPost () {
+    const settings = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newForm),
+    };
+    const fetchResponse = await fetch(URI, settings);
+    const resp = await fetchResponse.json();
+    setChanged(!changed);
+  }
+  fetchPost();
+}}
 
 
   return (
