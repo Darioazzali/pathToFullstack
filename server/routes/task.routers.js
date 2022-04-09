@@ -1,4 +1,5 @@
 const express = require('express');
+const { update } = require('../models/form.js');
 const router = express.Router();
 
 const Form = require('../models/form.js')
@@ -6,7 +7,6 @@ const Form = require('../models/form.js')
 router.get('/', async (request, response) =>
 {
     const task= await Form.find()
-    console.log(task)
     response.json(task)
 })
 
@@ -19,11 +19,14 @@ router.post('/', async (request, response) =>{
    console.log(request.body) ;
    const task = new Form(request.body);
    await task.save();
+   console.log("Posted")
+   response.send(task);
 })
 
 router.put('/:id', async(request, response)=>{
     const newForm = request.body;
-    await Form.findByIdAndUpdate(request.params.id, newForm);
+    const updated = await Form.findByIdAndUpdate(request.params.id, newForm);
+    response.send(updated);
 } )
 
 router.delete('/:id', async (request, response)=> {

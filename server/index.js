@@ -14,23 +14,6 @@ app.use(express.json()) //Per poter leggere in Json
 //Routes
 app.use('/api/clitotem',require('./routes/task.routers'))
 
-app.get('/api/clitotem/:id', (request, response) =>
-{
-})
-
-app.delete('/api/clitotem/:id', (request, response )=>
-    {
-        const deletingId = request.params.id
-        notes = notes.filter(note => note.nome !== nomedaCanc)
-    response.status(204).end()
-    console.log("Cancellato");
-    })
-
-app.post("/api/clitotem", (request, response) => {
-  const note = request.body;
-  console.log("Inserita",note);
-  response.json(note);
-})
 //Static files
 console.log(path.join(__dirname, "..", "client", "public"))
 app.use(express.static(path.join(__dirname, "..", "client", "build")));
